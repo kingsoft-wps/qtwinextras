@@ -6,6 +6,7 @@ DEFINES += QT_NO_FOREACH
 
 SOURCES += \
     qwinfunctions.cpp \
+    qwinfunctions_p.cpp \
     qwintaskbarbutton.cpp \
     qwintaskbarprogress.cpp \
     windowsguidsdefs.cpp \
@@ -44,7 +45,7 @@ HEADERS += \
 
 QMAKE_DOCS = $$PWD/doc/qtwinextras.qdocconf
 
-LIBS_PRIVATE += -lole32 -lshlwapi -lshell32 -ldwmapi
+LIBS_PRIVATE += -lole32 -lshlwapi -lshell32
 win32:!qtHaveModule(opengl)|qtConfig(dynamicgl):LIBS_PRIVATE += -lgdi32
 
 OTHER_FILES += \
