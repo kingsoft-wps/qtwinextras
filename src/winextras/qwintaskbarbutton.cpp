@@ -51,7 +51,6 @@
 #include <QtGui/qwindow.h>
 #include <QtGui/qicon.h>
 #include <QtCore/qpair.h>
-#include <dwmapi.h>
 #include <shobjidl.h>
 
 QT_BEGIN_NAMESPACE

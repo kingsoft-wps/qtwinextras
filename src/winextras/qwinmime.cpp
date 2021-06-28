@@ -128,6 +128,41 @@ int QWinMime::registerMimeType(const QString &mime)
 }
 
 /*!
+    unRegisters the Internal Text MIME type
+*/
+void QWinMime::unregisterInternalTextMime()
+{
+    if (!QMetaObject::invokeMethod(QGuiApplication::platformNativeInterface(),
+                                   "unregisterInternalTextMime")) {
+        qWarning() << Q_FUNC_INFO << "Unable to unregister Internal Text mime type ";
+    }
+}
+
+/*!
+    unRegisters the Internal Html MIME type
+*/
+void QWinMime::unregisterInternalHtmlMime()
+{
+    if (!QMetaObject::invokeMethod(QGuiApplication::platformNativeInterface(),
+                                   "unregisterInternalHtmlMime")) {
+        qWarning() << Q_FUNC_INFO << "Unable to unregister Internal Html mime type ";
+    }
+}
+
+/*!
+    Registers the MIME type \a mime, and returns an ID number
+    identifying the format on Windows.
+*/
+void QWinMime::addLastExcludeMimeType(const QString &mime)
+{
+    if (!QMetaObject::invokeMethod(QGuiApplication::platformNativeInterface(),
+                                   "addLastExcludeMimeType",
+                                   Q_ARG(QString, mime))) {
+        qWarning() << Q_FUNC_INFO << "Unable to Add Last mime type " << mime;
+    }
+}
+
+/*!
     \fn bool QWinMime::canConvertFromMime(const FORMATETC &formatetc, const QMimeData *mimeData) const
 
     Returns true if the converter can convert from the \a mimeData to

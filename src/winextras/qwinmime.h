@@ -69,6 +69,8 @@ public:
     // for converting from Qt
     virtual bool canConvertFromMime(const FORMATETC &formatetc, const QMimeData *mimeData) const = 0;
     virtual bool convertFromMime(const FORMATETC &formatetc, const QMimeData *mimeData, STGMEDIUM * pmedium) const = 0;
+    virtual bool canConvertHereFromMime(const FORMATETC &formatetc, const QMimeData *mimeData) const = 0;
+	virtual bool convertHereFromMime(const FORMATETC &formatetc, const QMimeData *mimeData, STGMEDIUM * pmedium) const = 0;
     virtual QVector<FORMATETC> formatsForMime(const QString &mimeType, const QMimeData *mimeData) const = 0;
 
     // for converting to Qt
@@ -77,6 +79,9 @@ public:
     virtual QString mimeForFormat(const FORMATETC &formatetc) const = 0;
 
     static int registerMimeType(const QString &mime);
+    static void addLastExcludeMimeType(const QString &mime);
+    static void unregisterInternalTextMime();
+    static void unregisterInternalHtmlMime();
 };
 
 QT_END_NAMESPACE
